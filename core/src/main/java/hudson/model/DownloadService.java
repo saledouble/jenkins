@@ -318,7 +318,7 @@ public class DownloadService {
             TextFile df = getDataFile();
             df.write(json);
             df.file.setLastModified(dataTimestamp);
-            LOGGER.info("Obtained the updated data file for "+id);
+            LOGGER.finest("Obtained the updated data file for "+id);
             return FormValidation.ok();
         }
 
