@@ -116,7 +116,7 @@ public abstract class ItemGroupMixIn {
                     if (xmlFile.exists()) {
                         item = (V) Items.load(parent, subdir);
                     } else {
-                        Logger.getLogger(ItemGroupMixIn.class.getName()).log(Level.WARNING, "could not find file " + xmlFile.getFile());
+                        Logger.getLogger(ItemGroupMixIn.class.getName()).log(Level.FINEST, "could not find file " + xmlFile.getFile());
                         continue;
                     }
                 } else {

@@ -78,7 +78,7 @@ public class JSONSignatureValidator {
                         } catch (CertificateNotYetValidException e) {
                             warning = FormValidation.warning(e, String.format("Certificate %s is not yet valid in %s", cert.toString(), name));
                         }
-                        LOGGER.log(Level.FINE, "Add certificate found in json doc: \r\n\tsubjectDN: {0}\r\n\tissuer: {1}", new Object[]{c.getSubjectDN(), c.getIssuerDN()});
+                        LOGGER.log(Level.FINER, "Add certificate found in json doc: \r\n\tsubjectDN: {0}\r\n\tissuer: {1}", new Object[]{c.getSubjectDN(), c.getIssuerDN()});
                         certs.add(c);
                     } catch (IllegalArgumentException ex) {
                         throw new IOException("Could not decode certificate", ex);

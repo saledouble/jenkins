@@ -67,7 +67,7 @@ public class ReverseProxySetupMonitor extends AdministrativeMonitor {
         Jenkins j = Jenkins.get();
         // May need to send an absolute URL, since handling of HttpRedirect with a relative URL does not currently honor X-Forwarded-Proto/Port at all.
         String redirect = j.getRootUrl() + "administrativeMonitor/" + id + "/testForReverseProxySetup/" + (referer != null ? Util.rawEncode(referer) : "NO-REFERER") + "/";
-        LOGGER.log(Level.FINE, "coming from {0} and redirecting to {1}", new Object[] {referer, redirect});
+        LOGGER.log(Level.FINEST, "coming from {0} and redirecting to {1}", new Object[] {referer, redirect});
         return new HttpRedirect(redirect);
     }
 
@@ -79,7 +79,7 @@ public class ReverseProxySetupMonitor extends AdministrativeMonitor {
         if (rest.startsWith(inferred)) { // not using equals due to JENKINS-24014
             throw HttpResponses.ok();
         } else {
-            LOGGER.log(Level.WARNING, "{0} vs. {1}", new Object[] {inferred, rest});
+            LOGGER.log(Level.FINEST, "{0} vs. {1}", new Object[] {inferred, rest});
             throw HttpResponses.errorWithoutStack(404, inferred + " vs. " + rest);
         }
     }

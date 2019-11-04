@@ -333,7 +333,7 @@ public abstract class Proc {
                     // closing these handles should terminate the threads.
                     String msg = "Process leaked file descriptors. See https://jenkins.io/redirect/troubleshooting/process-leaked-file-descriptors for more information";
                     Throwable e = new Exception().fillInStackTrace();
-                    LOGGER.log(Level.WARNING,msg,e);
+                    LOGGER.log(Level.FINEST,msg,e);
 
                     // doing proc.getInputStream().close() hangs in FileInputStream.close0()
                     // it could be either because another thread is blocking on read, or

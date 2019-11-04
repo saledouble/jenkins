@@ -1058,7 +1058,7 @@ public abstract class Descriptor<T extends Describable<T>> implements Saveable, 
                 if (d != null) {
                     items.add(d.newInstance(req, jo));
                 } else {
-                    LOGGER.log(Level.WARNING, "Received unexpected form data element: {0}", jo);
+                    LOGGER.log(Level.FINEST, "Received unexpected form data element: {0}", jo);
                 }
             }
         }

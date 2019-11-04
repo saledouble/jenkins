@@ -692,7 +692,7 @@ public abstract class Job<JobT extends Job<JobT, RunT>, RunT extends Run<JobT, R
                         //So let's try even though we lack some information
                         String oldBuildsDir = Jenkins.expandVariablesForDirectory(jenkins.getRawBuildsDir(), oldFullName, "<NOPE>");
                         if (oldBuildsDir.contains("<NOPE>")) {
-                            LOGGER.severe(String.format("Builds directory for job %1$s appears to be outside of item root," +
+                            LOGGER.finest(String.format("Builds directory for job %1$s appears to be outside of item root," +
                                     " but somehow still containing the item root path, which is unknown. Cannot move builds from %2$s to %1$s.", newFullName, oldFullName));
                         } else {
                             File oldDir = new File(oldBuildsDir);

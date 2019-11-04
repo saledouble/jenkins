@@ -1177,7 +1177,7 @@ public class UpdateCenter extends AbstractModelObject implements Saveable, OnMas
                 File dst = job.getDestination();
                 File tmp = new File(dst.getPath()+".tmp");
 
-                LOGGER.info("Downloading "+job.getName());
+                LOGGER.finest("Downloading "+job.getName());
                 Thread t = Thread.currentThread();
                 String oldName = t.getName();
                 t.setName(oldName + ": " + src);
@@ -2178,7 +2178,7 @@ public class UpdateCenter extends AbstractModelObject implements Saveable, OnMas
 
         @Override
         public void run() {
-            LOGGER.info("Completing installing of plugin batch…");
+            LOGGER.finer("Completing installing of plugin batch…");
             status = new Running();
             try {
                 Jenkins.get().getPluginManager().start(batch);

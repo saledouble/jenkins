@@ -360,12 +360,12 @@ public class ArtifactArchiver extends Recorder implements SimpleBuildStep {
                                 if (lr.getArtifactNumToKeep() == -1) {
                                     p.setBuildDiscarder(new LogRotator(lr.getDaysToKeep(), lr.getNumToKeep(), lr.getArtifactDaysToKeep(), 1));
                                 } else {
-                                    LOG.log(Level.WARNING, "will not clobber artifactNumToKeep={0} in {1}", new Object[] {lr.getArtifactNumToKeep(), p});
+                                    LOG.log(Level.FINEST, "will not clobber artifactNumToKeep={0} in {1}", new Object[] {lr.getArtifactNumToKeep(), p});
                                 }
                             } else if (bd == null) {
                                 p.setBuildDiscarder(new LogRotator(-1, -1, -1, 1));
                             } else {
-                                LOG.log(Level.WARNING, "unrecognized BuildDiscarder {0} in {1}", new Object[] {bd, p});
+                                LOG.log(Level.FINEST, "unrecognized BuildDiscarder {0} in {1}", new Object[] {bd, p});
                             }
                         }
                         aa.latestOnly = null;

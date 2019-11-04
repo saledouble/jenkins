@@ -96,7 +96,7 @@ public class DefaultJnlpSlaveReceiver extends JnlpAgentReceiver {
             } else if (launcher instanceof ComputerLauncherFilter) {
                 launcher = ((ComputerLauncherFilter) launcher).getCore();
             } else if (null != (l = getDelegate(launcher))) {  // TODO remove when all plugins are fixed
-                LOGGER.log(Level.INFO, "Connecting {0} as an inbound agent where the launcher {1} does not mark "
+                LOGGER.log(Level.WARNING, "Connecting {0} as an inbound agent where the launcher {1} does not mark "
                                 + "itself correctly as being an inbound agent",
                         new Object[]{clientName, computer.getLauncher().getClass()});
                 launcher = l;

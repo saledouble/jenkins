@@ -3308,10 +3308,10 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
             return;
         }
         if (currentMilestone == InitMilestone.COMPLETED) {
-            LOGGER.log(FINE, "setting version {0} to {1}", new Object[] {version, VERSION});
+            LOGGER.log(FINEST, "setting version {0} to {1}", new Object[] {version, VERSION});
             version = VERSION;
         } else {
-            LOGGER.log(FINE, "refusing to set version {0} to {1} during {2}", new Object[] {version, VERSION, currentMilestone});
+            LOGGER.log(FINEST, "refusing to set version {0} to {1} during {2}", new Object[] {version, VERSION, currentMilestone});
         }
 
         getConfigFile().write(this);
@@ -4101,7 +4101,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
     @RequirePOST
     public synchronized HttpResponse doReload() throws IOException {
         checkPermission(ADMINISTER);
-        LOGGER.log(Level.WARNING, "Reloading Jenkins as requested by {0}", getAuthentication().getName());
+        LOGGER.log(Level.FINEST, "Reloading Jenkins as requested by {0}", getAuthentication().getName());
 
         // engage "loading ..." UI and then run the actual task in a separate thread
         WebApp.get(servletContext).setApp(new HudsonIsLoading());
@@ -4420,7 +4420,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
             @SuppressFBWarnings(value = "DM_EXIT", justification = "Exit is really intended.")
             public void run() {
                 try (ACLContext ctx = ACL.as(ACL.SYSTEM)) {
-                    LOGGER.info(String.format("Shutting down VM as requested by %s from %s",
+                    LOGGER.warning(String.format("Shutting down VM as requested by %s from %s",
                                                 exitUser, exitAddr));
                     // Wait 'til we have no active executors.
                     doQuietDown(true, 0);

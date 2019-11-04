@@ -83,6 +83,7 @@ import static hudson.PluginWrapper.PluginDisableStatus.DISABLED;
 import static hudson.PluginWrapper.PluginDisableStatus.ERROR_DISABLING;
 import static hudson.PluginWrapper.PluginDisableStatus.NOT_DISABLED_DEPENDANTS;
 import static hudson.PluginWrapper.PluginDisableStatus.NO_SUCH_PLUGIN;
+import static java.util.logging.Level.FINEST;
 import static java.util.logging.Level.WARNING;
 import jenkins.plugins.DetachedPluginsUtil;
 import static org.apache.commons.io.FilenameUtils.getBaseName;
@@ -1221,7 +1222,7 @@ public class PluginWrapper implements Comparable<PluginWrapper>, ModelObject {
     public HttpResponse doPin() throws IOException {
         Jenkins.get().checkPermission(Jenkins.ADMINISTER);
         // See https://groups.google.com/d/msg/jenkinsci-dev/kRobm-cxFw8/6V66uhibAwAJ
-        LOGGER.log(WARNING, "Call to pin plugin has been ignored. Plugin name: " + shortName);
+        LOGGER.log(FINEST, "Call to pin plugin has been ignored. Plugin name: " + shortName);
         return HttpResponses.ok();
     }
 
@@ -1230,7 +1231,7 @@ public class PluginWrapper implements Comparable<PluginWrapper>, ModelObject {
     public HttpResponse doUnpin() throws IOException {
         Jenkins.get().checkPermission(Jenkins.ADMINISTER);
         // See https://groups.google.com/d/msg/jenkinsci-dev/kRobm-cxFw8/6V66uhibAwAJ
-        LOGGER.log(WARNING, "Call to unpin plugin has been ignored. Plugin name: " + shortName);
+        LOGGER.log(FINEST, "Call to unpin plugin has been ignored. Plugin name: " + shortName);
         return HttpResponses.ok();
     }
 
