@@ -654,7 +654,7 @@ THE SOFTWARE.
                 </configuration>
               </execution>
 
-              <execution>
+          <!--     <execution>
                 <phase>generate-sources</phase>
                 <id>gulp bundle</id>
                 <goals>
@@ -675,7 +675,7 @@ THE SOFTWARE.
                   <arguments>bundle test</arguments>
                   <skip>${skipTests}</skip>
                 </configuration>
-              </execution>
+              </execution>--> 
 
             </executions>
           </plugin>
